@@ -83,3 +83,120 @@ const keyMap = new Map([
 ]);
 
 const keyMapValues = Array.from(keyMap);
+
+function addBtn() {
+    header.className = 'title';
+  
+    keyBoardWrapper.className = 'wrap';
+    firstRow.className = 'wrap-row-1';
+    secondRow.className = 'wrap-row-2';
+    thirdRow.className = 'wrap-row-3';
+    fourRow.className = 'wrap-row-4';
+    fiveRow.className = 'wrap-row-5';
+    textArea.className = 'textarea';
+    instruction.className = 'instruction';
+    header.innerHTML = 'Виртуальная клавиатура';
+    instruction.innerHTML = 'Для переключения языка используется комбинация: левый Ctrl + space';
+  
+    document.body.append(header);
+    document.body.append(textArea);
+    document.body.append(keyBoardWrapper);
+    document.body.append(instruction);
+    document.querySelector('.wrap').append(firstRow);
+    document.querySelector('.wrap').append(secondRow);
+    document.querySelector('.wrap').append(thirdRow);
+    document.querySelector('.wrap').append(fourRow);
+    document.querySelector('.wrap').append(fiveRow);
+  
+    for (let i = 0; i < 14; i += 1) {
+      const keyboardBtn = document.createElement('div');
+      keyboardBtn.className = 'keyboard-button';
+      keyboardBtn.innerHTML = keyMapValues[i][1][currentLaunguage];
+      document.querySelector('.wrap-row-1').append(keyboardBtn);
+      if (i === 13) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '62px';
+      }
+      if (i === 0) {
+        keyboardBtn.className = 'upperCase keyboard-button';
+      }
+      if (i > 0 && i < 13) {
+        keyboardBtn.className = 'addSymb keyboard-button';
+      }
+    }
+  
+
+    for (let i = 14; i < 29; i += 1) {
+      const keyboardBtn = document.createElement('div');
+      keyboardBtn.className = 'keyboard-button';
+      keyboardBtn.innerHTML += keyMapValues[i][1][currentLaunguage];
+
+      document.querySelector('.wrap-row-2').append(keyboardBtn);
+      if (i === 28 || i === 14) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '15px';
+        keyboardBtn.style.paddingLeft = '8px';
+      }
+      if (i > 14 && i < 28) {
+        keyboardBtn.className = 'keyboard-button upperCase';
+      }
+    }
+  
+
+    for (let i = 29; i < 42; i += 1) {
+      const keyboardBtn = document.createElement('div');
+      keyboardBtn.className = 'keyboard-button';
+      keyboardBtn.innerHTML = keyMapValues[i][1][currentLaunguage];
+      document.querySelector('.wrap-row-3').append(keyboardBtn);
+
+      if (i === 41) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '44px';
+      }
+      if (i === 29) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '54px';
+      }
+  
+      if (i > 29 && i < 41) {
+        keyboardBtn.className = 'keyboard-button upperCase';
+      }
+    }
+  
+
+    for (let i = 42; i < 55; i += 1) {
+      const keyboardBtn = document.createElement('div');
+      keyboardBtn.className = 'keyboard-button';
+      keyboardBtn.innerHTML = keyMapValues[i][1][currentLaunguage];
+      document.querySelector('.wrap-row-4').append(keyboardBtn);
+
+      if (i === 42) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '42px';
+      } else if (i === 54) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '104px';
+      }
+  
+      if (i > 42 && i < 53) {
+        keyboardBtn.className = 'keyboard-button upperCase';
+      }
+    }
+  
+
+    for (let i = 55; i < 64; i += 1) {
+      const keyboardBtn = document.createElement('div');
+      keyboardBtn.className = 'keyboard-button';
+      keyboardBtn.innerHTML = keyMapValues[i][1][currentLaunguage];
+      document.querySelector('.wrap-row-5').append(keyboardBtn);
+      
+      if (i === 58) {
+        keyboardBtn.className = 'keyboard-button';
+        keyboardBtn.style.width = '192px';
+      }
+    }
+  }
+  
+
+  addBtn();
+  
