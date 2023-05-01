@@ -95,8 +95,8 @@ function addBtn() {
     fiveRow.className = 'wrap-row-5';
     textArea.className = 'textarea';
     instruction.className = 'instruction';
-    header.innerHTML = 'Виртуальная клавиатура';
-    instruction.innerHTML = 'Для переключения языка используется комбинация: левый Ctrl + space';
+    header.innerHTML = 'Virtual Keyboard';
+    instruction.innerHTML = 'The combination is used to switch the language.: Left Ctrl + space';
   
     document.body.append(header);
     document.body.append(textArea);
@@ -234,16 +234,16 @@ document.addEventListener('keyup', (target) => {
       currentValue.classList.add('wrap_animate_2');
       currentValue.addEventListener('animationend', AnimationHandler, false);
           }
-           else if (target.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
+              else if (target.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
       currentValue.classList.add('wrap_animate_2');
       currentValue.addEventListener('animationend', AnimationHandler, false);
-          } 
-        else if (target.key.toUpperCase() === keyMapValues[index][1][0]) {
+          }             
+              else if (target.key.toUpperCase() === keyMapValues[index][1][0]) {
       currentValue.classList.add('wrap_animate_2');
       currentValue.addEventListener('animationend', AnimationHandler, false);
 
     } 
-       else if (target.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
+            else if (target.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
       currentValue.classList.add('wrap_animate_2');
       currentValue.addEventListener('animationend', AnimationHandler, false);
     }
@@ -283,4 +283,53 @@ document.addEventListener('keyup', (target) => {
       currentValue.style.background = '#444444';
     }
   });
+});
+
+//  button animation on click
+document.addEventListener('click', (el) => {
+  function AnimationHandler() {
+    el.target.classList.remove('wrap_animate_2');
+  }
+  if (el.target.classList.contains('keyboard-button')) {
+    el.target.classList.add('wrap_animate_2');
+    el.target.addEventListener('animationend', AnimationHandler, false);
+  }
+});
+
+//button selection on click
+document.addEventListener('mousedown', (el) => {
+  if (el.target.classList.contains('keyboard-button')) {
+    el.target.style.background = 'green';
+  }
+});
+
+document.addEventListener('mouseup', (el) => {
+  if (el.target.classList.contains('keyboard-button')) {
+    el.target.style.background = '#444444';
+  }
+});
+
+// CapsLock
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'CapsLock') {
+    keysLetter.forEach((currentValue) => {
+      if (currentValue.innerHTML !== currentValue.innerHTML.toUpperCase()) {
+        currentValue.innerHTML = currentValue.innerHTML.toUpperCase();
+      }    else {
+        currentValue.innerHTML = currentValue.innerHTML.toLowerCase();
+      }
+    });
+  }
+});
+
+keyBoardWrapper.addEventListener('click', (event) => {
+  if (event.target.innerHTML === 'CapsLock') {
+    keysLetter.forEach((currentValue) => {
+      if (currentValue.innerHTML !== currentValue.innerHTML.toUpperCase()) {
+        currentValue.innerHTML = currentValue.innerHTML.toUpperCase();
+      }    else {
+        currentValue.innerHTML = currentValue.innerHTML.toLowerCase();
+      }
+    });
+  }
 });
