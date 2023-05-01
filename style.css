@@ -1,0 +1,146 @@
+body {
+background-color: rgba(114,177,101,0.8)
+}
+.wrap-row-1 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.wrap-row-1 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.wrap-row-1 .upperCase {
+    width: 180px;
+}
+
+.wrap-row-2 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.wrap-row-3 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.wrap-row-4 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.wrap-row-5 {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px
+}
+
+.title {
+    margin: 90px auto;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(24, 64, 116, 0.8);
+    -webkit-text-stroke: 1px rgba(114,177,101,0.8);
+}
+
+.textarea {
+    display: block;
+    width: 700px;
+    height: 300px;
+    margin: 10px auto 10px;
+    padding: 10px;
+    font-size: 24px;
+    color: #444444;
+}
+
+.instruction {
+    margin: 10px auto;
+    display: block;
+    width: 700px;
+    text-align: center;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    background-color: #596691;
+    width: 704px;
+    height: 240px;
+    margin: 0 auto;
+    padding: 5px;
+    
+    padding-bottom: 0;
+}
+
+.keyboard-button {
+    border: 1px solid #ece2e2;
+    width: auto;
+    padding: 0 15px;
+    width: 40px;
+    height: 40px;
+    background: #444444;
+    border-radius: 3px;
+    margin-left: 6px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 500;
+    color: #bfd30a;
+}
+
+.box {
+	width: 220px;
+	height: 100px;
+	background-color: rgb(70, 12, 82);
+	box-sizing: border-box;
+	border: 2px solid rgba(0, 0, 0, 0.24);
+	text-align: center;
+}
+
+.wrap_animate_2 {
+	animation: animate_2  0.2s forwards;
+}
+
+.upperCase {
+    width: 40px;
+    padding: 0px;
+    text-align: center;
+}
+
+@keyframes animate_2 {
+    0% { 
+       
+        border-radius: 15%; 
+        background-color: rgb(14, 90, 52);
+        transform: scale(1.4);
+    }
+    50% { 
+        transform: scale(1.1);
+        border-radius: 40%; 
+        background-color: rgb(153, 161, 39);
+    }     
+    100% {
+        transform: scale(1);
+         border-radius: 15%;
+           background-color: #1d0f0f;  
+        }
+   }
