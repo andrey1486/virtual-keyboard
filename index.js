@@ -189,7 +189,7 @@ function addBtn() {
       keyboardBtn.className = 'keyboard-button';
       keyboardBtn.innerHTML = keyMapValues[i][1][currentLaunguage];
       document.querySelector('.wrap-row-5').append(keyboardBtn);
-      
+
       if (i === 58) {
         keyboardBtn.className = 'keyboard-button';
         keyboardBtn.style.width = '192px';
@@ -200,3 +200,87 @@ function addBtn() {
 
   addBtn();
   
+  
+//Saving key state
+class Foucs {
+  constructor(field) {
+    this.field = field;
+  }
+
+  textFoucs() {
+    this.field.focus();
+  }
+}
+
+const focus = new Foucs(textArea);
+focus.textFoucs();
+const keys = document.querySelectorAll('.keyboard-button');
+const keysLetter = document.querySelectorAll('.upperCase');
+
+function changeBtn() {
+  keys.forEach((currentValue, index) => {
+    (currentValue.innerHTML = keyMapValues[index][1][currentLaunguage]);
+  });
+}
+
+// --------------
+
+document.addEventListener('keyup', (target) => {
+  keys.forEach((currentValue, index) => {
+    function AnimationHandler() {
+      currentValue.classList.remove('wrap_animate_2');
+    }
+    if (target.code === keyMapValues[index][1][2] || target.key === keyMapValues[index][1][2]) {
+      currentValue.classList.add('wrap_animate_2');
+      currentValue.addEventListener('animationend', AnimationHandler, false);
+          }
+           else if (target.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
+      currentValue.classList.add('wrap_animate_2');
+      currentValue.addEventListener('animationend', AnimationHandler, false);
+          } 
+        else if (target.key.toUpperCase() === keyMapValues[index][1][0]) {
+      currentValue.classList.add('wrap_animate_2');
+      currentValue.addEventListener('animationend', AnimationHandler, false);
+
+    } 
+       else if (target.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
+      currentValue.classList.add('wrap_animate_2');
+      currentValue.addEventListener('animationend', AnimationHandler, false);
+    }
+  });
+});
+
+// highlight effects
+document.addEventListener('keydown', (target) => {
+  keys.forEach((currentValue, index) => {
+    if (target.code === keyMapValues[index][1][2]) {
+      currentValue.style.background = 'green';
+    } 
+       else if (target.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
+      currentValue.style.background = 'green';
+    } 
+       else if (target.key.toUpperCase() === keyMapValues[index][1][0]) {
+      currentValue.style.background = 'green';
+    } 
+       else if (target.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
+      currentValue.style.background = 'green';
+    }
+  });
+});
+
+document.addEventListener('keyup', (target) => {
+  keys.forEach((currentValue, index) => {
+    if (target.code === keyMapValues[index][1][2]) {
+      currentValue.style.background = '#444444';
+    } 
+       else if (target.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
+      currentValue.style.background = '#444444';
+    } 
+        else if (target.key.toUpperCase() === keyMapValues[index][1][0]) {
+      currentValue.style.background = '#444444';
+    } 
+        else if (target.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
+      currentValue.style.background = '#444444';
+    }
+  });
+});
