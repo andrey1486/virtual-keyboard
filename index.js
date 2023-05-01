@@ -333,3 +333,57 @@ keyBoardWrapper.addEventListener('click', (event) => {
     });
   }
 });
+
+// language switching
+
+function runOnKeys(...codes) {
+  const pressed = new Set();
+
+  document.addEventListener('keydown', (event) => {
+    pressed.add(event.code);
+    for (let i = 0; i < codes.length; i += 1) {
+      if (!pressed.has(codes[i])) {
+        return;
+      }
+    }
+
+    if (currentLaunguage === 0 || currentLaunguage === null || currentLaunguage === '0') {
+      currentLaunguage = 1;
+    } else {
+      currentLaunguage = 0;
+    }
+    localStorage.setItem('record', currentLaunguage);
+
+    changeBtn();
+    pressed.clear();
+  });
+
+  document.addEventListener('keyup', (event) => {
+    pressed.delete(event.code);
+  });
+}
+
+runOnKeys(
+  'Space',
+  'ControlLeft',
+);
+
+//textarea
+
+keyBoardWrapper.addEventListener('click', (event) => {
+  if (event.target.classList.contains('keyboard-button')) {
+    if (event.target.innerHTML === 'Backspace') {
+      textArea.value = textArea.value.slice(0, -1);
+    } else if (event.target.innerHTML === 'Del') {
+      textArea.value = textArea.value.slice(0, -1);
+    } else if (event.target.innerHTML === 'Tab') {
+      textArea.value += '    ';
+    } else if (event.target.innerHTML === 'Enter') {
+      textArea.value += '\n';
+    } else if (event.target.innerHTML === '▲Alt' || event.target.innerHTML === ' Alt' || event.target.innerHTML === '▲Shift' || event.target.innerHTML === ' Shift' || event.target.innerHTML === 'CapsLock' || event.target.innerHTML === 'Ctrl' || event.target.innerHTML === ' Ctrl' || event.target.innerHTML === 'Win' || event.target.innerHTML === 'Shift') {
+      textArea.value += '';
+    } else {
+      textArea.value += event.target.innerHTML;
+    }
+  }
+});
