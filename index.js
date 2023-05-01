@@ -387,3 +387,108 @@ keyBoardWrapper.addEventListener('click', (event) => {
     }
   }
 });
+
+//enter input
+
+textArea.addEventListener('keydown', (evt) => {
+  keys.forEach((currentValue, index) => {
+    if (evt.key.toUpperCase() === currentValue.innerHTML.toUpperCase()) {
+      if (currentValue.innerHTML === 'Backspace') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Del') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Tab') {
+        evt.preventDefault();
+        textArea.value += '    ';
+      } else if (currentValue.innerHTML === 'Enter') {
+        evt.preventDefault();
+        textArea.value += '\n';
+      } else if (currentValue.innerHTML === '▲Alt' || currentValue.innerHTML === ' Alt' || currentValue.innerHTML === '▲Shift' || currentValue.innerHTML === 'CapsLock' || currentValue.innerHTML === 'Ctrl' || currentValue.innerHTML === ' Ctrl' || currentValue.innerHTML === 'Win' || currentValue.innerHTML === 'Shift') {
+        textArea.value += '';
+      } else {
+        evt.preventDefault();
+        evt.currentTarget.value += currentValue.innerHTML;
+      }
+    } else if (evt.key.toUpperCase() === keyMapValues[index][1][0].toUpperCase()) {
+      if (currentValue.innerHTML === 'Backspace') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Del') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Tab') {
+        evt.preventDefault();
+        textArea.value += '    ';
+      } else if (currentValue.innerHTML === 'Enter') {
+        evt.preventDefault();
+        textArea.value += '\n';
+      } else if (currentValue.innerHTML === '▲Alt' || currentValue.innerHTML === ' Alt' || currentValue.innerHTML === '▲Shift' || currentValue.innerHTML === 'CapsLock' || currentValue.innerHTML === 'Ctrl' || currentValue.innerHTML === ' Ctrl' || currentValue.innerHTML === 'Win' || currentValue.innerHTML === 'Shift') {
+        textArea.value += '';
+      } else {
+        evt.preventDefault();
+        evt.currentTarget.value += currentValue.innerHTML;
+      }
+    } else if (evt.key.toUpperCase() === keyMapValues[index][1][1].toUpperCase()) {
+      if (currentValue.innerHTML === 'Backspace') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Del') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Tab') {
+        evt.preventDefault();
+        textArea.value += '    ';
+      } else if (currentValue.innerHTML === 'Enter') {
+        evt.preventDefault();
+        textArea.value += '\n';
+      } else if (currentValue.innerHTML === '▲Alt' || currentValue.innerHTML === ' Alt' || currentValue.innerHTML === '▲Shift' || currentValue.innerHTML === 'CapsLock' || currentValue.innerHTML === 'Ctrl' || currentValue.innerHTML === ' Ctrl' || currentValue.innerHTML === 'Win' || currentValue.innerHTML === 'Shift') {
+        textArea.value += '';
+      } else {
+        evt.preventDefault();
+        evt.currentTarget.value += currentValue.innerHTML;
+      }
+    } else if (evt.key === keyMapValues[index][1][2]) {
+      if (currentValue.innerHTML === 'Backspace') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Del') {
+        evt.preventDefault();
+        textArea.value = textArea.value.slice(0, -1);
+      } else if (currentValue.innerHTML === 'Tab') {
+        evt.preventDefault();
+        textArea.value += '    ';
+      } else if (currentValue.innerHTML === 'Enter') {
+        evt.preventDefault();
+        textArea.value += '\n';
+      } else if (currentValue.innerHTML === '▲Alt' || currentValue.innerHTML === ' Alt' || currentValue.innerHTML === '▲Shift' || currentValue.innerHTML === 'CapsLock' || currentValue.innerHTML === 'Ctrl' || currentValue.innerHTML === ' Ctrl' || currentValue.innerHTML === 'Win' || currentValue.innerHTML === 'Shift') {
+        textArea.value += '';
+      } else {
+        evt.preventDefault();
+        evt.currentTarget.value += currentValue.innerHTML;
+      }
+    }
+  });
+});
+
+
+const numKey = document.querySelectorAll('.addSymb');
+
+
+document.addEventListener('keydown', (target) => {
+  if (target.key === 'Shift') {
+    numKey.forEach((currentValue, index) => {
+      currentValue.innerHTML = keyMapValues[index + 1][1][2];
+    });
+  }
+});
+
+
+document.addEventListener('keyup', (target) => {
+  if (target.key === 'Shift') {
+    numKey.forEach((currentValue, index) => {
+      currentValue.innerHTML = keyMapValues[index + 1][1][1];
+    });
+  }
+});
